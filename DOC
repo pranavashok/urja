@@ -1,0 +1,37 @@
+index.php
+	- Functions
+		fetch_results($value, $field)
+			Fetches the input '$value' contained in the field '$field'.
+			
+		function search_form()
+			Generates the search form.
+			
+		function add_entries()
+			Generates the 'Add Entries' button.
+			
+	- Variables
+		- Location of stylesheet
+		
+add.php
+	- Functions
+		- Javascript to serialize forms and accept information
+	- Variables
+		Search location
+		
+searching.php
+	- Functions
+		searcher($directory)
+			Locates pdf|PDF which is not existent in the database and outputs a form
+
+database.php
+	Creates a table if not exist
+	- Variables
+		- Database Name
+		- Database Username
+		- Database Password
+		- Database Host
+		
+update.php
+	- Functions
+		update_table($journal, $title, $authors, $year, $location, $keywords)
+			Adds the above variables to the table

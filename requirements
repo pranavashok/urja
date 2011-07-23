@@ -1,0 +1,13 @@
+-location of the files index... -->DATABASE change made
+the keywords thing has to be changed.. we need to be able to add 5 csv keywords.. not select them.. --> done
+it's actually an index of an article inside some journal
+for example, if the magzine SCIENCE has an article Nature and Diversity in it, then
+Journal Name: SCIENCE			-->DATABASE structure change made
+Title: Nature and Diversity		-->DATABASE structure change made
+Location: nandd.pdf 			-->DATABASE structure change made
+or such
+
+
+how a pdf is added
+locate the pdf on the harddisk-->ask the user to fill in the values-->update the table
+on next start, scan the required folder for new pdfs
