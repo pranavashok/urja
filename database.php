@@ -1,9 +1,5 @@
 <?php
-define('DB_NAME','');
-define('DB_USER','');
-define('DB_PASSWORD','');
-define('DB_HOST','localhost');
-define('SEARCH_DIR', '');
+require_once("config.php");
 $result = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
 $database = DB_NAME;
 @mysql_select_db($database) or die( "Unable to select database. Please see if the database exists");
