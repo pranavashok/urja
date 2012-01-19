@@ -52,6 +52,12 @@ function update_table($journal, $title, $authors, $year, $location, $keywords)
 			$ref = mysql_query($sql);
 			$result = mysql_result($ref,0);
 		}
+		else
+		{
+			$sql = sprintf("UPDATE listing2 SET journal='%s', title='%s', authors='%s', year='%s', keywords='%s' WHERE location ='%s'", mysql_real_escape_string($journal), mysql_real_escape_string($title), mysql_real_escape_string($authors), mysql_real_escape_string($year), mysql_real_escape_string($keywords), mysql_real_escape_string($location));
+			$ref = mysql_query($sql);
+			$result = mysql_result($ref,0);
+		}
 }
 update_table($journal, $title, $authors, $year, $location, $keywords);
 ?>

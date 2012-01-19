@@ -1,17 +1,18 @@
+<?php require_once("database.php"); ?>
 <html>
 <head>
 	<style type="text/css" media="all">@import "./style.css";</style>
 	<script src="js/jquery.js"></script>
 	<script type="text/javascript">
-		function updatedatabase(num){
-		value = "#add" + num;
+		function updatedatabase(id){
+		value = "#add";
 		$(value).hide("slow");
-		journal = "journal" + num;
-		title = "title" + num;
-		authors = "authors" + num;
-		loc = "location" + num; 
-		year = "year" + num;
-		keywords = "keywords" + num;
+		journal = "journal";
+		title = "title";
+		authors = "authors";
+		loc = "location"; 
+		year = "year";
+		keywords = "keywords";
 		journal = document.getElementById(journal);
 		title = document.getElementById(title);
 		authors = document.getElementById(authors);
@@ -49,20 +50,20 @@
 	</div>
 	<div id="content">
 		<div id="contentIn">
-			<?php require("databse.php");
+			<?php
 			$sql = "SELECT * FROM listing2 WHERE id = '". mysql_real_escape_string($_GET['e']) . "'";
 			$ref = mysql_query($sql);
-			$result = mysql_result($ref, 0);
-			if($result == 0)
+			$result = mysql_fetch_assoc($ref);
+			if($result)
 			{
 			echo '<form name="add" id="add'. $i. '" method = "post" action="javascript:updatedatabase('.$i.')">' . "<div style=\"color:#000000; font-size:15px;\">$filename[2].$filename[3]</div>" . '
 				<fieldset>
-					<input type="text" name="journal" id="journal'.$i.'" value="Journal Name" class="text-input" onfocus="if(this.value == \'Journal Name\') this.value = \'\'"  />
-					<input type="text" name="title" id="title'.$i.'" value="Title" class="text-input" onfocus="if(this.value == \'Title\') this.value = \'\'" />
-					<input type="text" name="authors" id="authors'.$i.'" value="Author" class="text-input" onfocus="if(this.value == \'Author\') this.value = \'\'" />
-					<input type="number" name="year" id="year'.$i.'" style="width:50px" value="Year" class="text-input" onfocus="if(this.value == \'Year\') this.value = \'\'"/>
-					<input type="hidden" name="location" id="location'.$i.'" value="'.$file.'" class="text-input" />
-					<input type="text" name="keywords" id="keywords'.$i.'" value="Keywords" class="text-input" onfocus="if(this.value == \'Keywords\') this.value = \'\'" />
+					<input type="text" name="journal" id="journal'.$i.'" value="'.$result['journal'].'" class="text-input" onfocus="if(this.value == \'Journal Name\') this.value = \'\'"  />
+					<input type="text" name="title" id="title'.$i.'" value="'.$result['title'].'" class="text-input" onfocus="if(this.value == \'Title\') this.value = \'\'" />
+					<input type="text" name="authors" id="authors'.$i.'" value="'.$result['authors'].'" class="text-input" onfocus="if(this.value == \'Author\') this.value = \'\'" />
+					<input type="number" name="year" id="year'.$i.'" style="width:50px" value="'.$result['year'].'" class="text-input" onfocus="if(this.value == \'Year\') this.value = \'\'"/>
+					<input type="hidden" name="location" id="location'.$i.'" value="'.$result['location'].'" class="text-input" />
+					<input type="text" name="keywords" id="keywords'.$i.'" value="'.$result['keywords'].'" class="text-input" onfocus="if(this.value == \'Keywords\') this.value = \'\'" />
 					<input type="submit" name="submit" class="button" id="submit_btn" value="Add" />
 				</fieldset>
 			</form>';

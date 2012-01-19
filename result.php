@@ -28,18 +28,18 @@
 			$ref = mysql_query($sql);
 			$i = 0;
 			echo "<table id='results' class='results'>
-				<tr><th colspan='5' style=\"text-align:center\">Results for the query \"$value\" in $field</th></tr>
-				<tr><th>Title</th><th>Journal</th><th>Author(s)</th><th>Year</th><th>Location</th></tr>";
+				<tr><th colspan='6' style=\"text-align:center\">Results for the query \"$value\" in $field</th></tr>
+				<tr><th>Title</th><th>Journal</th><th>Author(s)</th><th>Year</th><th>Location</th><th></th></tr>";
 			while($row = mysql_fetch_assoc($ref))
 			{
 				$rows[$i] = $row;
 				$str = addslashes($row['location']); //^\/.*\/([^\/]+)$
 				ereg( '^\/.*\/Journals/(.+)$', $row['location'], $filename );
 				echo "<tr>
-					<td>". $row['title'] . 
-					"</td><td>" . $row['journal'] . 
+					<td>". $row['title'] . "</td><td>" . $row['journal'] . 
 					"</td><td><a href=\"result.php?value=".$row['authors']."&field=authors\">" . $row['authors'] . 
-					"</a></td><td>" . $row['year'] . "</td><td><a href=\"$str\">/$str"."</a></td></tr>";
+					"</a></td><td>" . $row['year'] . "</td><td><a href=\"$str\">/$str" . 
+					"</a></td><td><a href=\"edit.php?e=".$row['id']."\">Edit</a></td></tr>";
 				$i++;
 			}
 			echo "</table>";
