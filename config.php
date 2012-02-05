@@ -1,7 +1,7 @@
 <?php
-define('DB_NAME','journal');
-define('DB_USER','root');
-define('DB_PASSWORD','pt4428');
+define('DB_NAME','');
+define('DB_USER','');
+define('DB_PASSWORD','');
 define('DB_HOST','localhost');
 define('SEARCH_DIR', 'Journals');
 ?>
